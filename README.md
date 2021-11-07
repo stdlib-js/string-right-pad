@@ -20,7 +20,7 @@ limitations under the License.
 
 # Right Pad
 
-[![NPM version][npm-image]][npm-url] [![Build Status][test-image]][test-url] [![Coverage Status][coverage-image]][coverage-url] [![dependencies][dependencies-image]][dependencies-url]
+[![NPM version][npm-image]][npm-url] [![Build Status][test-image]][test-url] [![Coverage Status][coverage-image]][coverage-url] <!-- [![dependencies][dependencies-image]][dependencies-url] -->
 
 > Right pad a string.
 
@@ -139,11 +139,34 @@ Options:
   -V,    --version             Print the package version.
          --len length          Minimum string length.
          --pad str             String used to pad. Default: ' '.
+         --split sep           Delimiter for stdin data. Default: '/\\r?\\n/'.
 ```
 
 </section>
 
 <!-- /.usage -->
+
+<!-- CLI usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+### Notes
+
+-   If the split separator is a [regular expression][mdn-regexp], ensure that the `split` option is either properly escaped or enclosed in quotes.
+
+    ```bash
+    # Not escaped...
+    $ echo -n $'beep\nboop' | rpad --len 8 --pad % --split /\r?\n/
+
+    # Escaped...
+    $ echo -n $'beep\nboop' | rpad --len 8 --pad % --split /\\r?\\n/
+    ```
+
+-   The implementation ignores trailing delimiters.
+
+</section>
+
+<!-- /.notes -->
 
 <section class="examples">
 
@@ -159,6 +182,14 @@ To use as a [standard stream][standard-streams],
 ```bash
 $ echo -n 'boop' | rpad --len 8 --pad %
 boop%%%%
+```
+
+By default, when used as a [standard stream][standard-streams], the implementation assumes newline-delimited data. To specify an alternative delimiter, set the `split` option.
+
+```bash
+$ echo -n 'boop\tbeep' |  rpad --len 8 --pad % --split '\t'
+boop%%%%
+beep%%%%
 ```
 
 </section>
@@ -177,8 +208,8 @@ boop%%%%
 
 ## See Also
 
--   [`@stdlib/string/left-pad`][@stdlib/string/left-pad]: left pad a string.
--   [`@stdlib/string/pad`][@stdlib/string/pad]: pad a string.
+-   <span class="package-name">[`@stdlib/string/left-pad`][@stdlib/string/left-pad]</span><span class="delimiter">: </span><span class="description">left pad a string.</span>
+-   <span class="package-name">[`@stdlib/string/pad`][@stdlib/string/pad]</span><span class="delimiter">: </span><span class="description">pad a string.</span>
 
 </section>
 
@@ -229,8 +260,12 @@ Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/string-right-pad/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/string-right-pad?branch=main
 
+<!--
+
 [dependencies-image]: https://img.shields.io/david/stdlib-js/string-right-pad.svg
 [dependencies-url]: https://david-dm.org/stdlib-js/string-right-pad/main
+
+-->
 
 [chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
 [chat-url]: https://gitter.im/stdlib-js/stdlib/
@@ -242,6 +277,8 @@ Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/string-right-pad/main/LICENSE
 
 [standard-streams]: https://en.wikipedia.org/wiki/Standard_streams
+
+[mdn-regexp]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
 
 <!-- <related-links> -->
 
