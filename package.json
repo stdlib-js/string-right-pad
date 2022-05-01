@@ -1,6 +1,6 @@
 {
   "name": "@stdlib/string-right-pad",
-  "version": "0.0.0",
+  "version": "0.0.8",
   "description": "Right pad a string.",
   "license": "Apache-2.0",
   "author": {
