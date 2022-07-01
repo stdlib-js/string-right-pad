@@ -24,32 +24,30 @@ limitations under the License.
 
 > Right pad a string.
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/string-right-pad
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
+-   If you are using Deno, visit the [`deno` branch][deno-url].
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-rpad = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/string-right-pad@umd/browser.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/string-right-pad@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.rpad;
-})();
-</script>
+var rpad = require( '@stdlib/string-right-pad' );
 ```
 
 #### rpad( str, len\[, pad] )
@@ -99,15 +97,10 @@ str = rpad( 'beep', 12, 'boop' );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/string-right-pad@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var round = require( '@stdlib/math-base-special-round' );
+var randu = require( '@stdlib/random-base-randu' );
+var rpad = require( '@stdlib/string-right-pad' );
 
 var str = 'beep';
 var n;
@@ -117,18 +110,105 @@ for ( i = 0; i < 100; i++ ) {
     n = round( randu()*10.0 ) + str.length;
     console.log( rpad( str, n, 'p' ) );
 }
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
 
 <!-- /.examples -->
 
+* * *
 
+<section class="cli">
+
+## CLI
+
+<section class="installation">
+
+## Installation
+
+To use the module as a general utility, install the module globally
+
+```bash
+npm install -g @stdlib/string-right-pad
+```
+
+</section>
+
+<!-- CLI usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```text
+Usage: rpad [options] [<string>] --len=<length>
+
+Options:
+
+  -h,    --help                Print this message.
+  -V,    --version             Print the package version.
+         --len length          Minimum string length.
+         --pad str             String used to pad. Default: ' '.
+         --split sep           Delimiter for stdin data. Default: '/\\r?\\n/'.
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- CLI usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+### Notes
+
+-   If the split separator is a [regular expression][mdn-regexp], ensure that the `split` option is either properly escaped or enclosed in quotes.
+
+    ```bash
+    # Not escaped...
+    $ echo -n $'beep\nboop' | rpad --len 8 --pad % --split /\r?\n/
+
+    # Escaped...
+    $ echo -n $'beep\nboop' | rpad --len 8 --pad % --split /\\r?\\n/
+    ```
+
+-   The implementation ignores trailing delimiters.
+
+</section>
+
+<!-- /.notes -->
+
+<section class="examples">
+
+### Examples
+
+```bash
+$ rpad beep --len 10 --pad p
+beeppppppp
+```
+
+To use as a [standard stream][standard-streams],
+
+```bash
+$ echo -n 'boop' | rpad --len 8 --pad %
+boop%%%%
+```
+
+By default, when used as a [standard stream][standard-streams], the implementation assumes newline-delimited data. To specify an alternative delimiter, set the `split` option.
+
+```bash
+$ echo -n 'boop\tbeep' |  rpad --len 8 --pad % --split '\t'
+boop%%%%
+beep%%%%
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.cli -->
 
 <!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
 
@@ -220,9 +300,9 @@ Copyright &copy; 2016-2022. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/string/left-pad]: https://github.com/stdlib-js/string-left-pad/tree/umd
+[@stdlib/string/left-pad]: https://github.com/stdlib-js/string-left-pad
 
-[@stdlib/string/pad]: https://github.com/stdlib-js/string-pad/tree/umd
+[@stdlib/string/pad]: https://github.com/stdlib-js/string-pad
 
 <!-- </related-links> -->
 
