@@ -53,7 +53,9 @@ If no recognized module system is present, access bundle contents via the global
 ```html
 <script type="text/javascript">
 (function () {
+(function () {
     window.rpad;
+})();
 })();
 </script>
 ```
@@ -114,6 +116,7 @@ str = rpad( 'beep', 12, 'boop' );
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/string-right-pad@umd/browser.js"></script>
 <script type="text/javascript">
 (function () {
+(function () {
 
 var str = 'beep';
 var n;
@@ -124,6 +127,7 @@ for ( i = 0; i < 100; i++ ) {
     console.log( rpad( str, n, 'p' ) );
 }
 
+})();
 })();
 </script>
 </body>
@@ -226,9 +230,9 @@ Copyright &copy; 2016-2022. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/string/left-pad]: https://github.com/stdlib-js/string-left-pad/tree/umd
+[@stdlib/string/left-pad]: https://github.com/stdlib-js/string-left-pad/tree/umd/tree/umd
 
-[@stdlib/string/pad]: https://github.com/stdlib-js/string-pad/tree/umd
+[@stdlib/string/pad]: https://github.com/stdlib-js/string-pad/tree/umd/tree/umd
 
 <!-- </related-links> -->
 
