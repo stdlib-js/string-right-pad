@@ -46,12 +46,11 @@
     "@stdlib/cli-ctor": "^0.0.3",
     "@stdlib/constants-float64-max-safe-integer": "^0.0.8",
     "@stdlib/fs-read-file": "^0.0.8",
-    "@stdlib/math-base-special-ceil": "^0.0.8",
     "@stdlib/process-read-stdin": "^0.0.7",
     "@stdlib/regexp-eol": "^0.0.7",
     "@stdlib/streams-node-stdin": "^0.0.7",
+    "@stdlib/string-base-right-pad": "github:stdlib-js/string-base-right-pad#main",
     "@stdlib/string-format": "^0.0.3",
-    "@stdlib/string-repeat": "^0.0.9",
     "@stdlib/utils-regexp-from-string": "^0.0.9"
   },
   "devDependencies": {
