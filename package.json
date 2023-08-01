@@ -49,7 +49,7 @@
     "@stdlib/process-read-stdin": "^0.0.7",
     "@stdlib/regexp-eol": "^0.0.7",
     "@stdlib/streams-node-stdin": "^0.0.7",
-    "@stdlib/string-base-right-pad": "github:stdlib-js/string-base-right-pad#main",
+    "@stdlib/string-base-right-pad": "^0.0.1",
     "@stdlib/string-format": "^0.0.3",
     "@stdlib/utils-regexp-from-string": "^0.0.9"
   },
