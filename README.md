@@ -42,7 +42,7 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import rpad from 'https://cdn.jsdelivr.net/gh/stdlib-js/string-right-pad@deno/mod.js';
+import rpad from 'https://cdn.jsdelivr.net/gh/stdlib-js/string-right-pad@v0.2.0-deno/mod.js';
 ```
 
 #### rpad( str, len\[, pad] )
@@ -95,7 +95,7 @@ str = rpad( 'beep', 12, 'boop' );
 ```javascript
 import round from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@deno/mod.js';
 import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@deno/mod.js';
-import rpad from 'https://cdn.jsdelivr.net/gh/stdlib-js/string-right-pad@deno/mod.js';
+import rpad from 'https://cdn.jsdelivr.net/gh/stdlib-js/string-right-pad@v0.2.0-deno/mod.js';
 
 var str = 'beep';
 var n;
